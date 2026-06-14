@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wangling's e-Portfolio</title>
+    <style>
+        :root {
+            /* 主色调：淡橙黄色系 */
+            --primary: #FFB74D;
+            --primary-dark: #F57C00;
+            --primary-light: #FFF3E0;
+            /* 辅助色 & 基础色 */
+            --accent: #795548;
+            --bg-main: #FFFAF0;
+            --text-main: #424242;
+            --text-light: #757575;
+            --card-bg: #ffffff;
+            --nav-bg: #5D4037;
+        }
+        * { 
+            box-sizing: border-box; 
+            margin: 0; 
+            padding: 0; 
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        html {
+            scroll-behavior: smooth; /* 全局平滑滚动 */
+        }
+        body { 
+            background-color: var(--bg-main); 
+            color: var(--text-main); 
+            line-height: 1.7;
+        }
+        /* 头部区域 */
+        header { 
+            background: linear-gradient(135deg, #FFCC80, var(--primary));
+            color: #3E2723;
+            padding: 70px 20px; 
+            text-align: center;
+        }
+        header h1 { 
+            font-size: 2.8rem; 
+            margin-bottom: 12px;
+            letter-spacing: 2px;
+        }
+        header p { 
+            font-size: 1.1rem; 
+            margin: 6px 0;
+        }
+        header em {
+            font-style: normal;
+            opacity: 0.85;
+        }
+        /* 导航栏 */
+        nav { 
+            background: var(--nav-bg); 
+            position: sticky; 
+            top: 0; 
+            z-index: 1000; 
+            display: flex; 
+            justify-content: center; 
+            flex-wrap: wrap;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+        }
+        nav a { 
+            color: white; 
+            padding: 16px 24px; 
+            text-decoration: none; 
+            font-weight: 500; 
+            transition: all 0.3s ease;
+            font-size: 1rem;
+        }
+        nav a:hover { 
+            background: var(--primary-dark);
+            color: #fff;
+        }
+        /* 容器通用 */
+        .container { 
+            max-width: 1250px; 
+            margin: 0 auto; 
+            padding: 50px 25px;
+        }
+        section { 
+            margin-bottom: 70px; 
+            scroll-margin-top: 65px;
+        }
+        h2 { 
+            color: var(--accent); 
+            font-size: 2.2rem; 
+            border-bottom: 4px solid var(--primary); 
+            padding-bottom: 12px; 
+            margin-bottom: 35px;
+            display: inline-block;
+        }
+        /* 卡片网格布局 */
+        .grid { 
+            display: grid; 
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); 
+            gap: 35px;
+        }
+        .card { 
+            background: var(--card-bg); 
+            border-radius: 16px; 
+            box-shadow: 0 4px 12px rgba(209, 144, 62, 0.18); 
+            overflow: hidden; 
+            padding: 25px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: 1px solid var(--primary-light);
+        }
+        .card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 8px 20px rgba(209, 144, 62, 0.25);
+        }
+        /* 视频容器 */
+        .video-container { 
+            position: relative; 
+            padding-bottom: 56.25%; 
+            height: 0; 
+            overflow: hidden; 
+            margin-bottom: 20px; 
+            border-radius: 12px;
+            background: var(--primary-light);
+        }
+        .video-container iframe { 
+            position: absolute; 
+            top: 0; 
+            left: 0; 
+            width: 100%; 
+            height: 100%; 
+            border: none;
+        }
+        .card h3 { 
+            color: var(--primary-dark); 
+            margin-bottom: 12px;
+            font-size: 1.3rem;
+        }
+        .card p { 
+            font-size: 1rem; 
+            color: var(--text-light); 
+            margin-bottom: 18px;
+            line-height: 1.8;
+        }
+        /* 按钮样式 */
+        .btn { 
+            display: inline-block; 
+            background: var(--primary-dark); 
+            color: white; 
+            padding: 11px 22px; 
+            text-decoration: none; 
+            border-radius: 30px; 
+            font-weight: 500; 
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 6px rgba(245, 124, 0, 0.3);
+        }
+        .btn:hover { 
+            background: #E65100;
+            box-shadow: 0 4px 10px rgba(245, 124, 0, 0.4);
+        }
+        /* 技能标签 */
+        .skills { 
+            display: flex; 
+            flex-wrap: wrap; 
+            gap: 12px;
+        }
+        .skill-tag { 
+            background: var(--primary-light); 
+            color: var(--accent); 
+            padding: 10px 20px; 
+            border-radius: 25px; 
+            font-size: 0.95rem; 
+            font-weight: 500;
+            border: 1px solid var(--primary);
+        }
+        /* 页脚 */
+        footer { 
+            background: var(--nav-bg); 
+            color: white; 
+            text-align: center; 
+            padding: 35px; 
+            margin-top: 50px;
+            font-size: 1rem;
+        }
+    </style>
+</head>
+<body>
+
+    <header id="home">
+        <h1>WANGLING</h1>
+        <p>Matric No: A207385 | Programme: 2AKIT1</p>
+        <p>Instructor: CikguIzwan</p>
+        <br>
+        <p><em>"IT major focusing on scalable mobile application development."</em></p>
+        <p><strong>SDG 12: Responsible Consumption and Production</strong> - Because tracking our fridge inventory reduces food waste and directly minimizes our carbon footprint.</p>
+    </header>
+
+    <nav>
+        <a href="#home">Home</a>
+        <a href="#labs">Labs</a>
+        <a href="#projects">Projects</a>
+        <a href="#reflection">Reflection</a>
+        <a href="#skills">Skills</a>
+    </nav>
+
+    <div class="container">
+        
+        <section id="labs">
+            <h2>Lab Submissions</h2>
+            <div class="grid">
+                <div class="card">
+                    <div class="video-container">
+                        <iframe src="https://www.youtube.com/embed/jWt30x1DTic" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                    </div>
+                    <h3>Lab 1: UI Basics</h3>
+                    <p><strong>Reflection:</strong> Explored foundational Jetpack Compose UI elements. Learned how to structure rows and columns efficiently to build responsive layouts.</p>
+                </div>
+                <div class="card">
+                    <div class="video-container">
+                        <iframe src="https://www.youtube.com/embed/M0Q929tTcfU" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                    </div>
+                    <h3>Lab 2: Interaction</h3>
+                    <p><strong>Reflection:</strong> Implemented state hoisting and basic user interactions. This lab clarified the reactive programming paradigm required for Compose.</p>
+                </div>
+                <div class="card">
+                    <div class="video-container">
+                        <iframe src="https://www.youtube.com/embed/NEX_PuOtAIs" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                    </div>
+                    <h3>Lab 3: Material Design</h3>
+                    <p><strong>Reflection:</strong> Applied Material 3 design principles including Scaffolds, TopAppBars, and standardized typography to ensure a professional aesthetic.</p>
+                </div>
+                <div class="card">
+                    <div class="video-container">
+                        <iframe src="https://www.youtube.com/embed/LY98Xz6vELc" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                    </div>
+                    <h3>Lab 4: Navigation</h3>
+                    <p><strong>Reflection:</strong> Mastered the Compose Navigation component. Successfully routed multiple screens while passing arguments securely between destinations.</p>
+                </div>
+                <div class="card">
+                    <div class="video-container">
+                        <iframe src="https://www.youtube.com/embed/-pKNNIPUGVI" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                    </div>
+                    <h3>Lab 5: Room Database</h3>
+                    <p><strong>Reflection:</strong> Integrated SQLite local persistence via Room. Successfully mapped data entities and executed asynchronous DAO operations using Coroutines.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="projects">
+            <h2>Project Submissions</h2>
+            <div class="grid">
+                <div class="card">
+                    <div class="video-container">
+                        <iframe src="https://www.youtube.com/embed/Qhx0Rb6kjw4" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                    </div>
+                    <h3>Project 1: Eco Fridge Tracker (Base)</h3>
+                    <p><strong>Problem Statement:</strong> Households often waste food because they lose track of expiry dates. This app provides a localized UI to track daily groceries.</p>
+                    <p><strong>Lessons Learned:</strong> Successfully established the MVVM architecture and shared state flows across multiple screens using Navigation Compose.</p>
+                    <a href="https://github.com/a207385/A207385_WANGLING_Cikgulzwan_Project1.git" target="_blank" class="btn">View on GitHub</a>
+                </div>
+
+                <div class="card">
+                    <div class="video-container">
+                        <iframe src="https://www.youtube.com/embed/YOUR_PROJECT_2_YOUTUBE_LINK_HERE" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                    </div>
+                    <h3>Project 2: Eco Fridge Tracker (Advanced)</h3>
+                    <p><strong>Problem Statement:</strong> To further reduce waste, users need external product data and a way to share surplus food with the community.</p>
+                    <p><strong>Lessons Learned:</strong> Overcame complex integration challenges bridging Room (local), Retrofit (APIs), hardware sensors (CameraX), and Firebase Firestore (Cloud) into one cohesive flow.</p>
+                    <a href="https://github.com/a207385/A207385_WANGLING_Cikguizwan_Project2.git" target="_blank" class="btn">View on GitHub</a>
+                </div>
+            </div>
+        </section>
+
+        <section id="reflection">
+            <h2>Reflection & Learning Journey</h2>
+            <div class="card">
+                <p>Throughout this course, my development methodology evolved from building static UI components to orchestrating complex, full-stack mobile applications. Bridging Jetpack Compose with reactive state management (MVVM) was challenging but ultimately provided a highly efficient, low-maintenance codebase. Integrating hardware sensors and asynchronous network calls (Retrofit/Firebase) taught me crucial debugging and DevOps skills, specifically how to navigate API data mapping and emulator network configurations. I am proud to have built a tool that functionally addresses SDG 12.</p>
+            </div>
+        </section>
+
+        <section id="skills">
+            <h2>Skills & Tech Stack</h2>
+            <div class="skills">
+                <span class="skill-tag">Kotlin</span>
+                <span class="skill-tag">Jetpack Compose</span>
+                <span class="skill-tag">Room Database</span>
+                <span class="skill-tag">Retrofit & REST APIs</span>
+                <span class="skill-tag">Firebase Firestore</span>
+                <span class="skill-tag">CameraX & ML Kit</span>
+                <span class="skill-tag">MVVM Architecture</span>
+            </div>
+        </section>
+
+    </div>
+
+    <footer>
+        <p>&copy; 2026 WANGLING (A207385). Developed for TK2323/TM2213 Mobile Programming.</p>
+    </footer>
+
+</body>
+</html>
